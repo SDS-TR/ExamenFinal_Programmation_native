@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Build / generated
+platforms/
+dist/
+*.log
+
+# Environment & secrets
+.env
+
+# IDE & tools
+.vscode/
+.qodo/
+.cursor/
+.DS_Store
+
+# Nested git repos (should not exist)
+**/.git/

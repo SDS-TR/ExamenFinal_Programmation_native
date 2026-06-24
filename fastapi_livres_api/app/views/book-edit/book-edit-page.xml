@@ -1,0 +1,46 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="page">
+  <ActionBar title="Modifier un livre" class="action-bar" />
+
+  <ScrollView>
+    <StackLayout class="form">
+      <Label text="Titre *" class="label" />
+      <TextField text="{{ titre }}" textChange="onTitreChange" class="input" />
+
+      <Label text="Auteur *" class="label" />
+      <TextField text="{{ auteur }}" textChange="onAuteurChange" class="input" />
+
+      <Label text="Année *" class="label" />
+      <TextField
+        text="{{ annee }}"
+        textChange="onAnneeChange"
+        keyboardType="number"
+        class="input" />
+
+      <Label text="Statut *" class="label" />
+      <ListPicker
+        items="{{ statuts }}"
+        selectedIndex="{{ statutIndex }}"
+        selectedIndexChange="onStatutChange"
+        class="input" />
+
+      <Label text="Commentaire" class="label" />
+      <TextView
+        text="{{ commentaire }}"
+        textChange="onCommentaireChange"
+        class="input textarea" />
+
+      <Label
+        text="{{ errorMessage }}"
+        visibility="{{ errorMessage ? 'visible' : 'collapsed' }}"
+        class="error"
+        textWrap="true" />
+
+      <Button
+        text="{{ isLoading ? 'Traitement...' : 'Enregistrer' }}"
+        tap="onSubmitTap"
+        isEnabled="{{ !isLoading }}"
+        class="btn btn-primary" />
+      <Button text="Annuler" tap="onCancelTap" class="btn btn-secondary" />
+    </StackLayout>
+  </ScrollView>
+</Page>

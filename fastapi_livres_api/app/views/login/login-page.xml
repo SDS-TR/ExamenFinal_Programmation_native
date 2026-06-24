@@ -1,0 +1,39 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="page">
+  <ActionBar title="Connexion" class="action-bar" />
+
+  <ScrollView>
+    <StackLayout class="form">
+      <Label text="Gestion de livres" class="h1 title" />
+
+      <Label text="Courriel" class="label" />
+      <TextField
+        hint="exemple@email.com"
+        keyboardType="email"
+        autocorrect="false"
+        autocapitalizationType="none"
+        text="{{ courriel }}"
+        textChange="onCourrielChange"
+        class="input" />
+
+      <Label text="Mot de passe" class="label" />
+      <TextField
+        hint="Mot de passe"
+        secure="true"
+        text="{{ motDePasse }}"
+        textChange="onMotDePasseChange"
+        class="input" />
+
+      <Label
+        text="{{ errorMessage }}"
+        visibility="{{ errorMessage ? 'visible' : 'collapsed' }}"
+        class="error"
+        textWrap="true" />
+
+      <Button
+        text="{{ isLoading ? 'Connexion en cours...' : 'Se connecter' }}"
+        tap="onLoginTap"
+        isEnabled="{{ !isLoading }}"
+        class="btn btn-primary" />
+    </StackLayout>
+  </ScrollView>
+</Page>

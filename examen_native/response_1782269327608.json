@@ -1,0 +1,11 @@
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwiZXhwIjoxNzgyMjc2NTI3fQ.HSRDxaMD2YC4sgwMkvZkXmmuAeTpFPS_OF-6n0uCFfM",
+  "token_type": "bearer",
+  "user": {
+    "id": 2,
+    "name": "Daouda Souare",
+    "email": "daoudasouare1@livre.com",
+    "created_at": "2026-06-23T22:48:29",
+    "updated_at": "2026-06-23T22:48:29"
+  }
+}

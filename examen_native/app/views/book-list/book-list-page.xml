@@ -1,0 +1,49 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" navigatedTo="onNavigatedTo" class="page">
+  <ActionBar title="Liste des livres" class="action-bar" />
+
+  <GridLayout rows="auto, auto, *">
+    <GridLayout row="0" columns="*, auto, auto" class="toolbar">
+      <Label col="0" text="Mes livres" class="toolbar-title" />
+      <Button col="1" text="+ Ajouter" tap="onAddBookTap" class="toolbar-btn toolbar-btn-add" />
+      <Button col="2" text="Déconnexion" tap="onLogoutTap" class="toolbar-btn toolbar-btn-logout" />
+    </GridLayout>
+
+    <Label
+      row="1"
+      text="{{ statusMessage }}"
+      visibility="{{ statusMessage ? 'visible' : 'collapsed' }}"
+      class="status-message"
+      textWrap="true" />
+
+    <ListView
+      row="2"
+      items="{{ books }}"
+      itemTap="onBookTap"
+      visibility="{{ showList ? 'visible' : 'collapsed' }}">
+      <ListView.itemTemplate>
+        <StackLayout class="list-item">
+          <Label text="{{ titre }}" class="list-title" />
+          <Label text="{{ auteur }}" class="list-subtitle" />
+          <GridLayout columns="*, auto" class="list-meta-row">
+            <Label col="0" text="{{ annee }}" class="list-meta" />
+            <Label col="1" text="{{ statut }}" class="list-statut" />
+          </GridLayout>
+        </StackLayout>
+      </ListView.itemTemplate>
+    </ListView>
+
+    <Button
+      row="2"
+      text="Ajouter un livre"
+      tap="onAddBookTap"
+      visibility="{{ isEmpty ? 'visible' : 'collapsed' }}"
+      class="btn btn-primary empty-add-btn" />
+
+    <Button
+      row="2"
+      text="Réessayer"
+      tap="onRefresh"
+      visibility="{{ hasError ? 'visible' : 'collapsed' }}"
+      class="btn btn-secondary" />
+  </GridLayout>
+</Page>

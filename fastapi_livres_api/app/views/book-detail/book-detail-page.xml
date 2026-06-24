@@ -1,0 +1,33 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="page">
+  <ActionBar title="Détail du livre" class="action-bar" />
+
+  <ScrollView>
+    <StackLayout class="form" visibility="{{ !isLoading ? 'visible' : 'collapsed' }}">
+      <Label text="{{ book.titre }}" class="h1 title" textWrap="true" />
+
+      <Label text="Auteur" class="label" />
+      <Label text="{{ book.auteur }}" class="value" textWrap="true" />
+
+      <Label text="Année" class="label" />
+      <Label text="{{ book.annee }}" class="value" />
+
+      <Label text="Statut" class="label" />
+      <Label text="{{ book.statut }}" class="value" />
+
+      <Label text="Commentaire" class="label" />
+      <Label text="{{ commentaireDisplay }}" class="value comment" textWrap="true" />
+
+      <Label
+        text="{{ errorMessage }}"
+        visibility="{{ errorMessage ? 'visible' : 'collapsed' }}"
+        class="error"
+        textWrap="true" />
+
+      <Button text="Modifier" tap="onEditTap" class="btn btn-primary" />
+      <Button text="Supprimer" tap="onDeleteTap" class="btn btn-danger" />
+      <Button text="Retour" tap="onBackTap" class="btn btn-secondary" />
+    </StackLayout>
+  </ScrollView>
+
+  <ActivityIndicator busy="{{ isLoading }}" class="loader" />
+</Page>
